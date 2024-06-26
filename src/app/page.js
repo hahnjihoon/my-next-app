@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <h2>web</h2>
-      hello next.js testest
+      first landing page no ID
       {/* <img src="/result.png"></img> */}
     </>
   );

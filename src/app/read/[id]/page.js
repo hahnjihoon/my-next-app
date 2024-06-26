@@ -3,7 +3,9 @@ export default async function Read(props) {
   // console.log("dkdlel:: ", props.params);
   // console.log("dkdlel:: ", props.params.id);
 
-  const resp = await fetch(`http://localhost:9999/topics/${props.params.id}`);
+  const resp = await fetch(`http://localhost:9999/topics/${props.params.id}`, {
+    cache: "no-store"
+  });
   // console.log("Response status: ", resp.status);
   // console.log("Response headers: ", resp.headers);
 

@@ -1,6 +1,7 @@
 // "use client";
 // import { Inter } from "next/font/google";
 // import { useEffect, useState } from "react";
+import { Controll } from "./Controll";
 import "./globals.css";
 import Link from "next/link";
 
@@ -20,8 +21,12 @@ export default async function RootLayout({ children }) {
   //       setTopics(result);
   //     });
   // }, []); //1번만실행 = 빈배열
-  const resp = await fetch("http://localhost:9999/topics");
+  const resp = await fetch("http://localhost:9999/topics", {
+    cache: "no-store"
+  });
+  console.log("resp:: ", resp);
   const topics = await resp.json();
+  console.log("topics:: ", topics);
   return (
     <html>
       <body>
@@ -43,8 +48,8 @@ export default async function RootLayout({ children }) {
             );
           })}
         </ol>
-        {children} "from outside layout.js beside children"
-        <ul>
+        {children}
+        {/* <ul>
           <li>
             <Link href="/create">Create</Link>
           </li>
@@ -54,7 +59,8 @@ export default async function RootLayout({ children }) {
           <li>
             <input type="button" value="delete" />
           </li>
-        </ul>
+        </ul> */}
+        <Controll />
       </body>
     </html>
   );
